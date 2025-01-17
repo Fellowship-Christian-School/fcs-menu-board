@@ -1,49 +1,48 @@
 {
-    "pageTitle": "Today's Lunch Menu",
-    "dateFormat": "EEEE MM/dd",
-    "menuSections": [
-      {
-        "title": "MAIN MENU",
-        "items": [
-          {
-            "name": "Buttermilk Pancakes",
-            "image": "/placeholder.svg?height=300&width=300",
-            "calories": 350
-          },
-          {
-            "name": "Scrambled Eggs",
-            "image": "/placeholder.svg?height=300&width=300",
-            "calories": 180
-          },
-          {
-            "name": "Pork Sausage Patty",
-            "image": "/placeholder.svg?height=300&width=300",
-            "calories": 230
-          }
-        ]
-      },
-      {
-        "title": "OTHER ITEMS",
-        "items": [
-          {
-            "name": "Grilled Chicken Caesar Salad",
-            "image": "/placeholder.svg?height=300&width=300",
-            "calories": 320
-          },
-          {
-            "name": "Chipotle Turkey Wrap",
-            "image": "/placeholder.svg?height=300&width=300",
-            "calories": 450
-          },
-          {
-            "name": "Greek Salad",
-            "image": "/placeholder.svg?height=300&width=300",
-            "calories": 280
-          }
-        ]
-      }
-    ],
-    "madeByText": "Made by STEM"
-  }
-  
-  
+  "pageTitle": "Today's Lunch Menu",
+  "dateFormat": "EEEE MM/dd",
+  "menuSections": [
+    {
+      "title": "MAIN MENU",
+      "items": [
+        {
+          "name": "Buttermilk Pancakes",
+          "image": "/placeholder.svg?height=300&width=300",
+          "calories": 350
+        },
+        {
+          "name": "Scrambled Eggs",
+          "image": "/placeholder.svg?height=300&width=300",
+          "calories": 180
+        },
+        {
+          "name": "Pork Sausage Patty",
+          "image": "/placeholder.svg?height=300&width=300",
+          "calories": 230
+        }
+      ]
+    },
+    {
+      "title": "OTHER ITEMS",
+      "items": [
+        {
+          "name": "Grilled Chicken Caesar Salad",
+          "image": "/placeholder.svg?height=300&width=300",
+          "calories": 320
+        },
+        {
+          "name": "Chipotle Turkey Wrap",
+          "image": "/placeholder.svg?height=300&width=300",
+          "calories": 450
+        },
+        {
+          "name": "Greek Salad",
+          "image": "/placeholder.svg?height=300&width=300",
+          "calories": 280
+        }
+      ]
+    }
+  ],
+  "madeByText": "Made by STEM"
+}
+
