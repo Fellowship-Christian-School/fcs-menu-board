@@ -26,6 +26,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.17.0
+
+        - name: Install dependencies
+      run: npm install
+
 
 
     # Step 4: Set up Python environment
@@ -54,8 +62,14 @@ jobs:
         git commit -m "Cache update $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes to cache."
         git push origin Testing
 
+    - name: Build and export Next.js app
+      run: npm run build
 
-
-
+    - name: Deploy to Test GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out
+        publish_branch: gh-pages-test  # Test Pages deployment branch
 
 
