@@ -80,7 +80,8 @@ results_div = soup.find('div', id='results')
 child_divs = results_div.find_all('div', recursive=False)
 
 settings_path = "my-app/settings.json"
-settings = json.load(settings_path)
+with open(settings_path, "r") as f:
+    settings = json.load(f)
 
 main_menu_items = []
 other_items = []
@@ -90,10 +91,10 @@ for item in child_divs:
     else:
         other_items.append(item.get("data-name"))
 
-settings["menuSelections"][0]["items"] = []
-settings["menuSelections"][1]["items"] = []
+settings["menuSections"][0]["items"] = []
+settings["menuSections"][1]["items"] = []
 for item in main_menu_items:
-    settings["menuSelections"][0]["items"].append(
+    settings["menuSections"][0]["items"].append(
         {
             "name": item,
             "image": "/placeholder.svg?height=300&width=300",
@@ -101,13 +102,16 @@ for item in main_menu_items:
         }
     )
 for item in other_items:
-    settings["menuSelections"][1]["items"].append(
+    settings["menuSections"][1]["items"].append(
         {
             "name": item,
             "image": "/placeholder.svg?height=300&width=300",
             "calories": 0
         }
     )
+
+with open(settings_path, "w") as f:
+    json.dump(settings, f)
 
 state = load_state()
 menu_items = main_menu_items + other_items
