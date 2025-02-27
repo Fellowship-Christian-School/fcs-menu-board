@@ -7,6 +7,15 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual deployment'
+        type: choice
+        default: 'manual_update'
+        options:
+        - testing
+        - manual_update
 
 permissions:
   contents: write
