@@ -116,6 +116,26 @@ with open("index.html", "w") as f:
     html_file = html_file.replace("[other]", '\n'.join(other_items_html))
     f.write(html_file)
 
-#print(html_file)
+    
+if datetime(year=2025,month=4,day=21).date() == datetime.today().date():
+    script_tag = """
+    <div class="senior-night-message">🎉 STEM Senior Night! 🎉</div>
+    <script> function createConfetti() {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+    } setInterval(createConfetti, 200);
+    </script> """
+    
+    with open("index.html","r") as f:
+        html = f.read()
+        insertion_index = html.find('<div')
+        new_html = html[:insertion_index] + script_tag + html[insertion_index:]
+        with open("index.html","w") as f:
+            f.write(new_html)
 
 exit()
