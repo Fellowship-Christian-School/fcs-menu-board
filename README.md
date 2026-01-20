@@ -2,6 +2,8 @@
 
 This project currently serves as a live archive of a STEM student's capstone project at Fellowship Christian School. Future modifications may be required to keep full functionality.
 
+This file was updated 2026-01-20 to keep GH Actions running.
+
 The original README follows:
 
 ># FCS Menu Board
