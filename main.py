@@ -1,27 +1,9 @@
-import json
-import os
 import re
 from datetime import datetime
 
 import requests
 from bs4 import BeautifulSoup
 
-STATE_FILE = "data/state.json"
-
-def load_state():
-    # Load existing state
-    if os.path.exists(STATE_FILE):
-        with open(STATE_FILE, "r") as f:
-            state = json.load(f)
-    else:
-        state = {}
-    return state
-
-def save_state(state):
-    # Save state
-    os.makedirs(os.path.dirname(STATE_FILE), exist_ok=True)
-    with open(STATE_FILE, "w") as f:
-        json.dump(state, f)
 
 def extract_number_id(input_string):
     match = re.search(r'\d+', input_string)
@@ -75,14 +57,6 @@ for item in child_divs:
     else:
         other_items.append(item.get("data-name"))
 
-state = load_state()
-menu_items = main_menu_items + other_items
-for key in menu_items:
-    if key not in state:
-        state[key] = {"photo": "", "emoji": ""}
-        print(key,"- Not in data.json")
-
-save_state(state)
 
 main_menu_html = [f'<div class="table-row">{key}</div>' for key in main_menu_items]
 other_items_html = [f'<div class="table-row">{key}</div>' for key in other_items]

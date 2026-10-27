@@ -13,9 +13,13 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
-The script fetches the current menu and writes `index.html`. When a menu is
-available, it also updates the tracked `data/state.json` cache. If no menu
+The script fetches the current menu and writes `index.html`. If no menu
 matches today's date, it writes the no-menu template instead.
+
+GitHub Actions generates and deploys the page to GitHub Pages on pushes to
+`main`, at midnight UTC daily, or when started manually. The deployment uploads
+only the generated page and does not commit it back to the repository. Configure
+the repository's Pages source as GitHub Actions.
 
 The original README follows:
 
