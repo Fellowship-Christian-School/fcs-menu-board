@@ -4,6 +4,19 @@ This project currently serves as a live archive of a STEM student's capstone pro
 
 This file was updated 2026-10-27 to keep GH Actions running.
 
+## Run locally
+
+Use Python 3.10 or newer, then run:
+
+```sh
+python -m pip install -r requirements.txt
+python main.py
+```
+
+The script fetches the current menu and writes `index.html`. When a menu is
+available, it also updates the tracked `data/state.json` cache. If no menu
+matches today's date, it writes the no-menu template instead.
+
 The original README follows:
 
 ># FCS Menu Board
