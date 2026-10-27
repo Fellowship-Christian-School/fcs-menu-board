@@ -13,8 +13,9 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
-The script fetches the current menu and writes `index.html`. If no menu
-matches today's date, it writes the no-menu template instead.
+The script fetches the current menu and writes the ignored `index.html` from
+`templates/menu.html`. If no menu matches today's date, the same template
+displays the no-menu message.
 
 GitHub Actions generates and deploys the page to GitHub Pages on pushes to
 `main`, at midnight UTC daily, or when started manually. The deployment uploads

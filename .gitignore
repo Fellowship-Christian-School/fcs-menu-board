@@ -4,6 +4,9 @@ __pycache__/
 .venv/
 venv/
 
+# Generated page
+/index.html
+
 # Local environment and editor settings
 .env
 .env.*

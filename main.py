@@ -13,9 +13,6 @@ def extract_number_id(input_string):
 with open("templates/menu.html", "r") as f:
     menu_html = f.read()
 
-with open("templates/no_menu.html", "r") as f:
-    no_menu_html = f.read()
-
 current_date = datetime.now().strftime("%m/%d")
 url = "https://www.nutritics.com/menu/ma1135"
 
@@ -40,7 +37,8 @@ if menu_div:
     print(f"Menu ID: {menu_id}")
 else:
     with open("index.html", "w") as f:
-        f.write(no_menu_html)
+        f.write(menu_html.replace("[title]", "No Lunch Items Today")
+                .replace("[mode]", "no-menu").replace("[main]", "").replace("[other]", ""))
     exit()
 
 url = "https://www.nutritics.com/menu/ma1135/" + menu_id  # Replace with the actual URL
@@ -62,7 +60,8 @@ main_menu_html = [f'<div class="table-row">{key}</div>' for key in main_menu_ite
 other_items_html = [f'<div class="table-row">{key}</div>' for key in other_items]
 
 with open("index.html", "w") as f:
-    html_file = menu_html.replace("[main]", '\n'.join(main_menu_html))
+    html_file = (menu_html.replace("[title]", "Lunch Items Today")
+                 .replace("[mode]", "menu").replace("[main]", '\n'.join(main_menu_html)))
     html_file = html_file.replace("[other]", '\n'.join(other_items_html))
     f.write(html_file)
 

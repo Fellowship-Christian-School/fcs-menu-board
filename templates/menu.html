@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunch Items Today</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/css/bootstrap.min.css">
+    <title>[title]</title>
     <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: system-ui, sans-serif;
+            line-height: 1.5;
+            color: #212529;
             background-color: #ffffff;
             margin: 0;
             display: flex;
@@ -31,11 +36,18 @@
             margin: 0 auto 60px;
         }
 
-        .main-title {
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
+        .no-menu .main-container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .no-menu .lunch-table {
+            flex-basis: 100%;
+        }
+
+        .menu .no-menu-message, .no-menu .menu-items {
+            display: none;
         }
 
         .lunch-table {
@@ -86,20 +98,23 @@
 
     </style>
 </head>
-<body>
+<body class="[mode]">
 
     <div class="main-container">
-        <div class="lunch-table">
+        <div class="lunch-table menu-items">
             <div class="table-header">Main Menu</div>
             <div class="table-content">
                 [main]
             </div>
         </div>
-        <div class="lunch-table">
+        <div class="lunch-table menu-items">
             <div class="table-header">Other Items</div>
             <div class="table-content">
                 [other]
             </div>
+        </div>
+        <div class="lunch-table no-menu-message">
+            <div class="table-header">No Lunch Items Today</div>
         </div>
     </div>
     <div class="footer-text">Built by STEM</div>
